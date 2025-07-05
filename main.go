@@ -3,10 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io"
-	"strings"
 )
 
+// https://apapi.co/json/
 func main() {
 	fmt.Println("Новый проект")
 	city := flag.String("city", "", "Город пользователя")
@@ -16,15 +15,15 @@ func main() {
 
 	fmt.Println(*city, *format)
 
-	r := strings.NewReader("Привет,я поток!")
-	b := make([]byte, 4)
+	// r := strings.NewReader("Привет,я поток!")
+	// b := make([]byte, 4)
 
-	for {
-		_, err := r.Read(b)
-		fmt.Printf("%q\n", b)
-		if err == io.EOF {
-			break
-		}
+	// for {
+	// 	_, err := r.Read(b)
+	// 	fmt.Printf("%q\n", b)
+	// 	if err == io.EOF {
+	// 		break
+	// 	}
 
-	}
+	// }
 }
