@@ -1,6 +1,7 @@
 package main
 
 import (
+	"demo/weather/geo"
 	"flag"
 	"fmt"
 )
@@ -14,6 +15,11 @@ func main() {
 	flag.Parse()
 
 	fmt.Println(*city, *format)
+	geoData, err := geo.GetGeoLocationUser(*city)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	fmt.Println(*geoData)
 
 	// r := strings.NewReader("Привет,я поток!")
 	// b := make([]byte, 4)
