@@ -10,6 +10,7 @@ import (
 )
 
 //https://wttr.in/london?format=4
+// https://countriesnow.space/api/v0.1/countries/population/cities
 
 func GetWeather(geo geo.GeoData, format int) string {
 	baseUrl, err := url.Parse("https://wttr.in/" + geo.City)
