@@ -3,6 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
+	"io"
+	"strings"
 )
 
 func main() {
@@ -14,4 +16,15 @@ func main() {
 
 	fmt.Println(*city, *format)
 
+	r := strings.NewReader("Привет,я поток!")
+	b := make([]byte, 4)
+
+	for {
+		_, err := r.Read(b)
+		fmt.Printf("%q\n", b)
+		if err == io.EOF {
+			break
+		}
+
+	}
 }
