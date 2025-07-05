@@ -2,6 +2,7 @@ package main
 
 import (
 	"demo/weather/geo"
+	"demo/weather/weather"
 	"flag"
 	"fmt"
 )
@@ -15,21 +16,11 @@ func main() {
 	flag.Parse()
 
 	fmt.Println(*city, *format)
-	geoData, err := geo.GetGeoLocationUser(*city)
+	geoData, err := geo.GetMyLocation(*city)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 	fmt.Println(*geoData)
-
-	// r := strings.NewReader("Привет,я поток!")
-	// b := make([]byte, 4)
-
-	// for {
-	// 	_, err := r.Read(b)
-	// 	fmt.Printf("%q\n", b)
-	// 	if err == io.EOF {
-	// 		break
-	// 	}
-
-	// }
+	myWeather := weather.GetWeather(*geoData, *format)
+	fmt.Println(myWeather)
 }

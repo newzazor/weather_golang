@@ -11,7 +11,7 @@ type GeoData struct {
 	City string `json:"city"`
 }
 
-func GetGeoLocationUser(city string) (*GeoData, error) {
+func GetMyLocation(city string) (*GeoData, error) {
 	if city != "" {
 		return &GeoData{City: city}, nil
 	}
